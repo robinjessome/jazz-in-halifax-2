@@ -1,11 +1,11 @@
-import {DocumentTextIcon} from '@sanity/icons'
+import {CalendarIcon} from '@sanity/icons'
 import {defineField, defineType} from 'sanity'
 
-export const postType = defineType({
-  name: 'post',
-  title: 'Post',
+export const events = defineType({
+  name: 'event',
+  title: 'Events',
   type: 'document',
-  icon: DocumentTextIcon,
+  icon: CalendarIcon,
   fields: [
     defineField({
       name: 'title',
@@ -33,18 +33,18 @@ export const postType = defineType({
       ]
     }),
     defineField({
-      name: 'publishedAt',
+      name: 'eventDate',
       type: 'datetime',
     }),
     defineField({
       name: 'body',
       type: 'blockContent',
-    }),
+    })
   ],
   preview: {
     select: {
       title: 'title',
-      media: 'mainImage',
+      date: 'eventDate',
     },
     prepare(selection) {
       return {...selection}

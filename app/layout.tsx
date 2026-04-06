@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,6 +36,7 @@ export default function RootLayout({
           <source src="http://www.sousound.com/music/healing/healing_01.mp3" type="audio/mpeg" />
           Your browser does not support the audio element.
         </audio>
+        <Link href="/contact">CONTACT</Link>
       </footer>
       </body>
     </html>

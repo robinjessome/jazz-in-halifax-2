@@ -4,6 +4,8 @@ import { client } from "@/sanity/lib/client";
 import Link from "next/link";
 import Image from "next/image";
 
+import { DataAccordion } from "@/components"
+
 const POST_QUERY = `*[_type == "post" && slug.current == $slug][0]`;
 
 const { projectId, dataset } = client.config();
@@ -23,9 +25,6 @@ export default async function PostPage({
   const postImageUrl = post.mainImage
     ? urlFor(post.mainImage)?.width(550).height(310).url()
     : null;
-
-    console.log('post', post)
-
 
 // const doc = {
 //   _type: 'post', // Matches the name in your schema
@@ -48,7 +47,7 @@ export default async function PostPage({
           src={postImageUrl}
           width="550"
           height="310"
-          alt=""
+          alt={post.mainImage.alt}
           className="aspect-video rounded-xl"
         />
       )}
@@ -58,6 +57,10 @@ export default async function PostPage({
         <p>Published: {new Date(post.publishedAt).toLocaleDateString()}</p>
         {Array.isArray(post.body) && <PortableText value={post.body} />}
       </div>
+
+
+<DataAccordion title="Post Data" data={post} />
+
 
     </main>
   );
