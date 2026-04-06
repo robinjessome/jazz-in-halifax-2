@@ -25,9 +25,18 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} antialiased`}
     >
-      <body>{children}</body>
+      <body>
+        {children}
+        <hr className="my-8"/>
+      <footer>
+        <audio controls>
+          <source src="http://www.sousound.com/music/healing/healing_01.mp3" type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+      </footer>
+      </body>
     </html>
   );
 }
